@@ -1,0 +1,42 @@
+ /*selector de tipo o elemento*/
+ body{
+    background: #E0F1E7 ;
+ }
+
+ form{
+  background-color: white;
+  margin: 10px;
+ }
+/* selectores de clase*/
+ .color-label{
+  color: red;
+ }
+
+ .letra-grande{
+  font-size: 50px;
+ }
+
+ /* selector de ID */
+ #email{
+  color:blue
+ }
+
+ /* selectores universales*/
+ *{
+  margin: 0px;
+  padding: 0px;
+ }
+
+ /*selectores de atributo*/
+ input[type="text"]{
+  background-color: red;
+ }
+
+ /*selectores descendentes*/
+ .contenedor{
+  width: 500px;
+ }
+
+ .contenedor .color-label2{
+  color: green;
+ }

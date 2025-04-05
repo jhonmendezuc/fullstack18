@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./estilos/formulario.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="./index.html">
+        <h4 id="contact-us">Contacto</h4>
+        <div class="form-group">
+          <div class="form-item">
+            <label class="color-label" for="">First Name *</label>
+            <input type="text" />
+          </div>
+          <div class="form-item">
+            <label class="color-label" for="">Last Name *</label>
+            <input type="text" />
+          </div>
+        </div>
+        <label for="">Email *</label>
+        <input id="email" type="text" />
+        <label for="">Query type*</label>
+        <div class="radio-group">
+          <label for="">
+            <input name="dato" type="radio" value="1" required />opcion1
+          </label>
+          <label for="">
+            <input name="dato" required value="2" type="radio" />opcion 2
+          </label>
+        </div>
+        <label for="">Message</label>
+        <textarea name="" id=""></textarea>
+        <div class="checkbox-group">
+          <input type="checkbox" id="consent" name="consent" required />
+          <label for="consent">aceptar</label>
+        </div>
+        <input type="submit" />
+      </form>
+    </div>
+  </body>
+</html>

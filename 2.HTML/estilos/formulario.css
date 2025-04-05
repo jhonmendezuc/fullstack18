@@ -1,0 +1,116 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'karlaitalic';
+  src: url('../fuentes/karla-italic-variablefont_wght-webfont.woff2') format('woff2'),
+    url('../fuentes/karla-italic-variablefont_wght-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'karlaregular';
+  src: url('../fuentes/karla-variablefont_wght-webfont.woff2') format('woff2'),
+    url('../fuentes/karla-variablefont_wght-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body{
+  background: #E0F1E7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+form{
+  font-family: "karlaregular";
+}
+
+input, textarea{
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    width: 100%;   
+}
+#email{
+  height: 25px;
+}
+
+input[type="submit"]{
+  background-color: #0B7E6A;
+  width: 100%;
+  color: white;
+  padding: 5px 10px;
+}
+
+textarea{
+  height: 100px;
+}
+h4{
+  color: black;
+}
+
+.container{
+  background: rgb(255, 255, 255);
+  width: 500px;
+  margin:0px auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact-us{
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.form-item input{
+  width: 100%;
+  height: 25px;
+}
+
+.form-group{
+  display: flex;
+  gap: 10px
+}
+
+.form-group label, .form-group input{
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.radio-group{
+  display: flex;
+  justify-content: space-between;
+}
+.radio-group label{
+  display: flex;
+  border: 1px solid #ccc;
+  width: 215px;
+  align-items: center;
+  margin-top: 10px;
+  padding: 5px ;
+}
+.radio-group input{
+      width: 40px;
+        height: 12px;
+}
+
+
+.checkbox-group{
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.checkbox-group input{
+  width: 20px;
+}
