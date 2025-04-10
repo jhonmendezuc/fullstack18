@@ -87,3 +87,153 @@ while (inicio <= 5) {
   console.log(inicio);
   inicio = inicio + 1;
 }
+
+for (let i = 1; i <= 5; i++) {
+  console.log("ciclo for", i);
+  console.log(`ciclo for ${i}`);
+}
+
+//funciones
+/*
+con parametro y retorno
+sin parametro y sin retorno
+sin parametro y con retorno
+*/
+//funciones propias
+function saludar(dato) {
+  console.log("hola", dato);
+}
+
+saludar("juan");
+saludar("jhon");
+saludar("felipe");
+
+let suma = function (numero1, numero2) {
+  return numero1 + numero2;
+};
+
+//funciones de flecha, tambien son anonimas
+let resta = (numero1, numero2) => {
+  return numero1 - numero2;
+};
+console.log(suma(2, 3));
+console.log(resta(2, 3));
+
+(function () {
+  console.log("hola");
+})();
+
+(() => {
+  console.log("hola");
+})();
+
+//funciones nativas
+let variable = prompt("ingrese un dato");
+console.log(variable);
+console.log(Math.random() * 10);
+console.log(Math.round(4.6));
+let saludo = "hola mundo";
+console.log(saludo.toUpperCase());
+
+//estructuras de datos
+//arrays, listas, diccionarios(map), conjuntos(set), colas, pilas
+
+//listas
+let edades = [12, 34, 56, 78];
+let datos = ["jhon", 45, "felipe", 48];
+let personas = [
+  ["jhon", 45, "jhon@gmail.com"],
+  ["felipe", 78, "felipe@gmail.com"],
+];
+console.log(edades); //muestra toda la lista
+console.log(datos);
+console.log(personas[1][2]);
+
+//map
+//recorre un alista y genera una nueva lista
+edades;
+edadesAux = edades.map((edad) => edad + 1);
+//reduce - reduce una expresion de una lista
+let promedio =
+  edades.reduce((acumulador, edad) => {
+    return acumulador + edad;
+  }, 0) / edades.length;
+promedio;
+let contador = 0;
+for (let i = 0; i < edades.length; i++) {
+  contador = contador + edades[i];
+}
+contador / 5;
+
+//foreach> recorrer una lista
+edades.forEach((edad) => {
+  console.log("edad->", edad);
+});
+for (let i = 0; i < edades.length; i++) {
+  console.log(edades[i]);
+}
+//listas
+let edades = [12, 34, 34, 56, 78, 12];
+edades.length;
+//buscar datos find, filter
+//find - busca un elemento que cumpla con una condicion
+let filtroEdad = edades.find((edad) => edad == 34);
+filtroEdad;
+
+//filter->filtra una lista y devuelve una nueva lista
+let filtroEdad2 = edades.filter((edad) => edad > 18);
+filtroEdad2;
+
+//listas
+let edades = [12, 34, 34, 56, 78, 12, 78];
+edades.length;
+
+let edadMayor = Math.max(...edades);
+edadMayor;
+//buscar datos find, filter
+//find - busca un elemento que cumpla con una condicion
+let filtroEdad = edades.find((edad) => edad == 34);
+filtroEdad;
+
+//filter->filtra una lista y devuelve una nueva lista
+let filtroEdad2 = edades.filter((edad) => edad > 18);
+filtroEdad2;
+
+let elMayor = edades.filter((edad) => edad === edadMayor);
+elMayor;
+
+//OBJETOS - ABSTRACCION(REPRESENTACION DE UNA REALIDAD) CONTEXTO
+
+//PERSONA - USUARIO - {CORREO, NOMBRE, APELLIDO, NOMBRE USUARIO}
+//PERSONA - {CEDULA, NOMBRE, APELLIDO, NACIONALIDAD, EDAD, PROFESION}
+
+//crear un objeto
+let estudiante1 = {
+  correo: "jhon@gmail.com",
+  nombre: "jhon",
+  apellido: "mendez",
+};
+let estudiante2 = {
+  correo: "fellipe@gmail.com",
+  nombre: "felipe",
+  apellido: "ramirez",
+};
+let estudiante3 = {
+  correo: "maria@gmail.com",
+  nombre: "maria",
+  apellido: "ramirez",
+};
+//lista de objetos
+let estudiantes = [estudiante1, estudiante2];
+estudiantes.push(estudiante3);
+estudiantes.pop();
+estudiantes.pop();
+estudiantes.shift();
+estudiantes;
+//lista de listas
+let personas = [["jhon", 12], "felipe", 45];
+
+//leer un atributo de un objeto en una lista
+estudiantes[1].correo;
+//leer un elemento dentro de otro elemento de lista
+personas[0][0];
