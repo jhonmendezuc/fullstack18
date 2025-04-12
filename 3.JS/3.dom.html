@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="titulo" name="titulo" id="titulo-formulario">
+      Registro de estudiantes
+    </h1>
+    <input
+      id="nombre-estudiante"
+      class="campo-texto"
+      type="text"
+      placeholder="Ingrese su nombre"
+      value=""
+    />
+    <input
+      id="apellido-estudiante"
+      class="campo-texto"
+      type="text"
+      placeholder="Ingrese su apellido"
+    />
+    <input
+      id="edad-estudiante"
+      type="text"
+      placeholder="Ingrese su edad"
+      value=""
+    />
+    <button id="registrar-datos">Registrar estudiante</button>
+    <button id="consultar-datos">Consultar estudiantes</button>
+    <table border="1">
+      <thead>
+        <tr>
+          <td>nombre</td>
+          <td>apellido</td>
+          <td>edad</td>
+        </tr>
+      </thead>
+      <tbody id="tabla-estudiantes"></tbody>
+    </table>
+    <script src="./3.dom.js"></script>
+  </body>
+</html>
