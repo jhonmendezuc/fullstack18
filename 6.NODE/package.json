@@ -1,0 +1,14 @@
+{
+  "name": "6.node",
+  "version": "1.0.0",
+  "main": "0.index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 0.index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
