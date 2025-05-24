@@ -1,3 +1,4 @@
+import { readFile, writeFile } from "node:fs";
 /*
 console.log("operacion1");
 //funcion asincrona nativa de JS
@@ -9,8 +10,6 @@ setTimeout(() => {
 
 console.log("operacion3");
 */
-
-import { read, readFile, writeFile } from "node:fs";
 
 const estudiantes = [];
 
@@ -29,6 +28,8 @@ readFile("archivos/estudiantes.json", "utf-8", (err, datos) => {
     estudiantes.push(element);
   });
 });
+
+console.log(estudiantes);
 
 let estudiante = {
   nombre: "jhon",
