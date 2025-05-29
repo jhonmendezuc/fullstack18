@@ -1,0 +1,19 @@
+{
+  "name": "TodoList",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test/test.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "jhon mendez",
+  "license": "MIT",
+  "description": "Proyecto de todolist en node-prisma-mongo",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  }
+}
