@@ -13,8 +13,13 @@
   "license": "MIT",
   "description": "Proyecto de todolist en node-prisma-mongo",
   "dependencies": {
+    "@prisma/client": "^6.9.0",
     "bcrypt": "^6.0.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongodb": "^6.17.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.9.0"
   }
 }

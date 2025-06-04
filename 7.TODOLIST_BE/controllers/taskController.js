@@ -1,22 +1,29 @@
+import taskService from "../services/taskService.js";
+
 const getTask = (req, res) => {
-  res.json({ message: "obteniendo tarea", tasks });
+  const data = taskService.getTask();
+  res.json({ message: "obteniendo tarea", data });
 };
 
-const createTask = (req, res) => {
+const createTask = async (req, res) => {
   const body = req.body;
-  console.log(body);
-  res.json({ message: "creando tarea", body });
+  const data = await taskService.createTask(body);
+  res.json({ message: "creando tarea", data });
 };
 const updateTask = (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  console.log(id, body);
+  const data = [
+    {
+      datos: "tareas",
+    },
+  ];
   res.json({ message: "actualizando tarea", id, body });
 };
-const deleteTask = (req, res) => {
+const deleteTask = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
-  res.json({ message: "eliminando tarea", id });
+  const data = await taskService.deleteTask(id);
+  res.json({ message: "eliminando tarea", data });
 };
 
 export default {
