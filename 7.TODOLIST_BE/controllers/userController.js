@@ -1,48 +1,34 @@
-import bcript from "bcrypt";
 import userService from "../services/userService.js";
-
-const getUser = (req, res) => {
-  res.json({ message: "obteniendo usuario" });
-};
 
 const createUser = async (req, res) => {
   const body = req.body;
-  const password = body.password;
-  const salt = bcript.genSaltSync(10);
-
-  const hash = bcript.hashSync(password, salt);
-  const data = await userService.createUser({
-    ...body,
-    password: hash,
-  });
+  const data = await userService.createUser(body);
   res.json({ message: "creando usuario", data });
 };
-const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  console.log(id, body);
+  const data = await userService.updateUser(id, body);
   res.json({ message: "actualizando usuario", id, body });
 };
-const deleteUser = (req, res) => {
+const deleteUser = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
-  res.json({ message: "eliminando usuario", id });
+  const data = await userService.deleteUser(id);
+  res.json({ message: "eliminando usuario", data });
 };
 
-const logIn = (req, res) => {
+const logIn = async (req, res) => {
   const body = req.body;
-  console.log(body);
-  res.json({ message: "login", body });
+  const data = await userService.login(body);
+  res.json({ message: "login", data });
 };
 
 const logOut = (req, res) => {
   const body = req.body;
-  console.log(body);
   res.json({ message: "logout", body });
 };
 
 export default {
-  getUser,
   createUser,
   updateUser,
   deleteUser,

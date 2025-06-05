@@ -3,12 +3,12 @@ import { ObjectId } from "mongodb";
 
 const prisma = new PrismaClient();
 
-const getTask = () => {
-  const data = [
-    {
-      datos: "tareas",
+const getTask = async (idUser) => {
+  const data = await prisma.task.findMany({
+    where: {
+      userId: new ObjectId(idUser),
     },
-  ];
+  });
   return data;
 };
 
@@ -20,6 +20,20 @@ const createTask = async (body) => {
       description: body.description,
       status: body.status,
       userId: userId,
+    },
+  });
+  return data;
+};
+
+const updateTask = async (id, body) => {
+  const data = await prisma.task.update({
+    where: {
+      id: new ObjectId(id),
+    },
+    data: {
+      title: body.title,
+      description: body.description,
+      status: body.status,
     },
   });
   return data;
@@ -39,4 +53,5 @@ export default {
   getTask,
   createTask,
   deleteTask,
+  updateTask,
 };
