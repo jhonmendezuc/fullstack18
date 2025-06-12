@@ -1,7 +1,7 @@
 import taskService from "../services/taskService.js";
 
 const getTask = async (req, res) => {
-  const userId = req.params.id;
+  const userId = req.data.id;
   const data = await taskService.getTask(userId);
   res.json({ message: "obteniendo tarea", data });
 };

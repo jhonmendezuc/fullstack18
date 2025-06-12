@@ -4,9 +4,10 @@ import { Router } from "express";
 import taskController from "../controllers/taskController.js";
 import verifyToken from "../midleware/verifyToken.js";
 const router = Router();
+
 router.use(verifyToken.validateToken);
 router
-  .get("/:id", taskController.getTask)
+  .get("/", taskController.getTask)
   .post("/", taskController.createTask)
   .put("/:id", taskController.updateTask)
   .delete("/:id", taskController.deleteTask);
