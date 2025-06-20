@@ -4,7 +4,6 @@ import { Router } from "express";
 import taskController from "../controllers/taskController.js";
 import verifyToken from "../midleware/verifyToken.js";
 const router = Router();
-
 router.use(verifyToken.validateToken);
 router
   .get("/", taskController.getTask)
