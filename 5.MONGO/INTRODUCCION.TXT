@@ -1,0 +1,109 @@
+BASES DE DATOS DOCUMENTALES: 
+- UN TIPO DE BD NoSQL
+- NO SIGUEN SOLO EL PARADIGMA RELACIONAL
+- SE BASAN EN DOCUMENTOS ("similar a un registro")
+- SE BASAN EN COLECCIONES ("similar a auna tabla")
+- SE BASAN EN DOCUMENTO BSON(binary JSON)
+- SE BASAN EN IDENTIFICADORES TIPO OBJECTS ID (HASH --"similar a una PK")
+- SON FLEXIBLES: SE ACOMODAN A LA CANTIDAD DE DATOS
+- MANEJAN TIPOS DE DATOS: INT, FLOAT, BOLEAN, STRING, ARRAY, BSON
+- MANEJAN LA ARQUITECTURA CLIENTE(CONSOLA, VSCODE, DBCOMPASS, TABLEPLUS) SERVIDOR(EJ. ATLAS, AWS, GCP, AZURE)
+EJ:
+COLECCION: CLIENTES
+[
+  {
+   "_ID": ObjectId(HASH),
+   "nombre":"jhon",
+   "apellido":"mendez",
+   "telefonos": [
+    12345887,5465465,5161551
+   ],
+   "hijos": [
+    {
+      "nombre":"javier",
+      "edad":5
+    },
+    {
+      "nombre":"maria",
+      "edad": 10
+    }
+   ]
+  },
+  {
+    "_ID": ObjectId(HASH),
+    "nombre":"roberto",
+    "edad": 25
+  }
+]
+
+
+string connection 
+mongodb+srv://fullstackuc:123@clustereje.obkraex.mongodb.net/?retryWrites=true&w=majority&appName=ClusterEje
+
+db.clientes.insertOne({
+  "nombre":"deysy",
+  "apellido":"velasco"
+});
+
+
+CLIENTES - FACTURAS
+UN CLIENTE TIENE MUCHAS FACTURAS Y VARIAS FACTURAS PERTENECEN A UN CLIENTE
+
+//documneto de la coleccion clientes
+{
+  _id: ObjectId("123"),
+  nombre: "deysy",
+  apellido: "velasco"
+}
+//documento de la coleccion ciudad
+{
+  _id: ObjectId("888"),
+  nombre: "medellin"
+}
+//documento de la coleccion facturas
+[{
+  _id: ObjectId("456"),
+  cliente: ObjectId("123"),
+  ciudad: ObjectId("888"),
+  total: 100
+},
+{
+  _id: ObjectId("789"),
+  cliente: ObjectId("123"),
+  ciudad: ObjectId("888"),
+  total: 100
+}]
+
+
+PARADIGMA NO RELACIONAL
+//documento de la coleccion clientes
+{
+  _id: ObjectId("123"),
+  nombre: "deysy",
+  apellido: "velasco",
+  facturas: [
+    {
+      ciudad: "bogota",
+      total: 100,
+      productos: [
+        {
+          nombre: "camisa",
+          precio: 100
+        },
+        {
+          nombre: "pantalon",
+          precio: 100
+        },
+        {
+          nombre: "zapatos",
+          precio: 100
+        }
+      ]
+    },
+    {
+      ciudad: "medellin",
+      total: 100
+    }
+  ]
+}
+

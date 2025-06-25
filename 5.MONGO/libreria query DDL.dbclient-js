@@ -1,0 +1,456 @@
+//EJEMPLO LIBRERIA
+//ENTIDADES: AUTOR, CLIENTE,EDITORIAL, LIBRO,VENTA
+db.autor.insertMany([
+  {
+    nombre: "Gabriel García Márquez",
+    nacionalidad: "Colombiana",
+    fecha_nacimiento: "1927-03-06",
+  },
+  {
+    nombre: "Isabel Allende",
+    nacionalidad: "Chilena",
+    fecha_nacimiento: "1942-08-02",
+  },
+  {
+    nombre: "J.K. Rowling",
+    nacionalidad: "Británica",
+    fecha_nacimiento: "1965-07-31",
+  },
+  {
+    nombre: "J.R.R. Tolkien",
+    nacionalidad: "Británica",
+    fecha_nacimiento: "1892-01-03",
+  },
+  {
+    nombre: "Ernest Hemingway",
+    nacionalidad: "Estadounidense",
+    fecha_nacimiento: "1899-07-21",
+  },
+  {
+    nombre: "F. Scott Fitzgerald",
+    nacionalidad: "Estadounidense",
+    fecha_nacimiento: "1896-09-24",
+  },
+  {
+    nombre: "Jane Austen",
+    nacionalidad: "Británica",
+    fecha_nacimiento: "1775-12-16",
+  },
+  {
+    nombre: "George Orwell",
+    nacionalidad: "Británica",
+    fecha_nacimiento: "1903-06-25",
+  },
+  {
+    nombre: "Franz Kafka",
+    nacionalidad: "Austriaco",
+    fecha_nacimiento: "1883-07-03",
+  },
+  {
+    nombre: "Mark Twain",
+    nacionalidad: "Estadounidense",
+    fecha_nacimiento: "1835-11-30",
+  },
+  {
+    nombre: "Virginia Woolf",
+    nacionalidad: "Británica",
+    fecha_nacimiento: "1882-01-25",
+  },
+  {
+    nombre: "Leo Tolstoy",
+    nacionalidad: "Rusa",
+    fecha_nacimiento: "1828-09-09",
+  },
+  {
+    nombre: "Haruki Murakami",
+    nacionalidad: "Japonesa",
+    fecha_nacimiento: "1949-01-12",
+  },
+  {
+    nombre: "Herman Melville",
+    nacionalidad: "Estadounidense",
+    fecha_nacimiento: "1819-08-01",
+  },
+]);
+db.editorial.insertMany([
+  { nombre: "Editorial Sudamericana", pais: "Argentina", año_fundacion: 1939 },
+  {
+    nombre: "Penguin Random House",
+    pais: "Estados Unidos",
+    año_fundacion: 1925,
+  },
+  { nombre: "Bloomsbury Publishing", pais: "Reino Unido", año_fundacion: 1986 },
+  { nombre: "HarperCollins", pais: "Estados Unidos", año_fundacion: 1989 },
+  { nombre: "Alfaguara", pais: "España", año_fundacion: 1964 },
+  { nombre: "Planeta", pais: "España", año_fundacion: 1949 },
+  { nombre: "Anagrama", pais: "España", año_fundacion: 1969 },
+  { nombre: "Simon & Schuster", pais: "Estados Unidos", año_fundacion: 1924 },
+  { nombre: "Macmillan Publishers", pais: "Reino Unido", año_fundacion: 1843 },
+  { nombre: "Hachette Livre", pais: "Francia", año_fundacion: 1826 },
+  {
+    nombre: "Scholastic Corporation",
+    pais: "Estados Unidos",
+    año_fundacion: 1920,
+  },
+  { nombre: "Faber and Faber", pais: "Reino Unido", año_fundacion: 1929 },
+  { nombre: "Random House", pais: "Estados Unidos", año_fundacion: 1927 },
+  { nombre: "Vintage Books", pais: "Estados Unidos", año_fundacion: 1954 },
+]);
+
+db.autor.findOne({ nombre: "Gabriel García Márquez," })._id;
+
+db.libro.insertMany([
+  {
+    titulo: "La casa de los espíritus",
+    autor_id: db.autor.findOne({ nombre: "Isabel Allende" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Penguin Random House" })._id,
+    fecha_publicacion: "1982-09-01",
+    precio: 15.0,
+  },
+  {
+    titulo: "Harry Potter y la piedra filosofal",
+    autor_id: db.autor.findOne({ nombre: "J.K. Rowling" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Bloomsbury Publishing" })._id,
+    fecha_publicacion: "1997-06-26",
+    precio: 25.0,
+  },
+  {
+    titulo: "El Señor de los Anillos",
+    autor_id: db.autor.findOne({ nombre: "J.R.R. Tolkien" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "HarperCollins" })._id,
+    fecha_publicacion: "1954-07-29",
+    precio: 30.0,
+  },
+  {
+    titulo: "El viejo y el mar",
+    autor_id: db.autor.findOne({ nombre: "Ernest Hemingway" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Alfaguara" })._id,
+    fecha_publicacion: "1952-09-01",
+    precio: 18.0,
+  },
+  {
+    titulo: "El gran Gatsby",
+    autor_id: db.autor.findOne({ nombre: "F. Scott Fitzgerald" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Planeta" })._id,
+    fecha_publicacion: "1925-04-10",
+    precio: 15.0,
+  },
+  {
+    titulo: "Orgullo y prejuicio",
+    autor_id: db.autor.findOne({ nombre: "Jane Austen" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Anagrama" })._id,
+    fecha_publicacion: "1813-01-28",
+    precio: 12.0,
+  },
+  {
+    titulo: "1984",
+    autor_id: db.autor.findOne({ nombre: "George Orwell" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Simon & Schuster" })._id,
+    fecha_publicacion: "1949-06-08",
+    precio: 17.0,
+  },
+  {
+    titulo: "La metamorfosis",
+    autor_id: db.autor.findOne({ nombre: "Franz Kafka" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Macmillan Publishers" })._id,
+    fecha_publicacion: "1915-10-01",
+    precio: 10.0,
+  },
+  {
+    titulo: "Las aventuras de Tom Sawyer",
+    autor_id: db.autor.findOne({ nombre: "Mark Twain" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Hachette Livre" })._id,
+    fecha_publicacion: "1876-12-01",
+    precio: 14.0,
+  },
+  {
+    titulo: "Mrs. Dalloway",
+    autor_id: db.autor.findOne({ nombre: "Virginia Woolf" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Faber and Faber" })._id,
+    fecha_publicacion: "1925-05-14",
+    precio: 16.0,
+  },
+  {
+    titulo: "Guerra y paz",
+    autor_id: db.autor.findOne({ nombre: "Leo Tolstoy" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Random House" })._id,
+    fecha_publicacion: "1869-01-01",
+    precio: 22.0,
+  },
+  {
+    titulo: "Tokio Blues",
+    autor_id: db.autor.findOne({ nombre: "Haruki Murakami" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Vintage Books" })._id,
+    fecha_publicacion: "1987-09-04",
+    precio: 19.0,
+  },
+  {
+    titulo: "Moby-Dick",
+    autor_id: db.autor.findOne({ nombre: "Herman Melville" })._id,
+    editorial_id: db.editorial.findOne({ nombre: "Scholastic Corporation" })
+      ._id,
+    fecha_publicacion: "1851-10-18",
+    precio: 20.0,
+  },
+]);
+
+db.venta.insertMany([
+  {
+    cliente_id: db.cliente.findOne({ nombre: "jhon" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "El viejo y el mar" })._id,
+        cantidad: 1,
+        precio: 18.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "1984" })._id,
+        cantidad: 1,
+        precio: 17.0,
+      },
+    ],
+    fecha_compra: "2024-08-15",
+    total: 35.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Juan Perez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "El gran Gatsby" })._id,
+        cantidad: 2,
+        precio: 15.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Orgullo y prejuicio" })._id,
+        cantidad: 1,
+        precio: 12.0,
+      },
+    ],
+    fecha_compra: "2024-08-16",
+    total: 42.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Maria Gonzalez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Las aventuras de Tom Sawyer" })
+          ._id,
+        cantidad: 1,
+        precio: 14.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Mrs. Dalloway" })._id,
+        cantidad: 2,
+        precio: 16.0,
+      },
+    ],
+    fecha_compra: "2024-08-17",
+    total: 46.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Carlos Rodriguez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Guerra y paz" })._id,
+        cantidad: 1,
+        precio: 22.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Tokio Blues" })._id,
+        cantidad: 1,
+        precio: 19.0,
+      },
+    ],
+    fecha_compra: "2024-08-18",
+    total: 41.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Ana Lopez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Moby-Dick" })._id,
+        cantidad: 1,
+        precio: 20.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "El viejo y el mar" })._id,
+        cantidad: 2,
+        precio: 18.0,
+      },
+    ],
+    fecha_compra: "2024-08-19",
+    total: 56.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Pedro Martinez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "1984" })._id,
+        cantidad: 1,
+        precio: 17.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Orgullo y prejuicio" })._id,
+        cantidad: 1,
+        precio: 12.0,
+      },
+    ],
+    fecha_compra: "2024-08-20",
+    total: 29.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Laura Sanchez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Guerra y paz" })._id,
+        cantidad: 2,
+        precio: 22.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "La metamorfosis" })._id,
+        cantidad: 1,
+        precio: 10.0,
+      },
+    ],
+    fecha_compra: "2024-08-21",
+    total: 54.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Javier Fernandez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Las aventuras de Tom Sawyer" })
+          ._id,
+        cantidad: 1,
+        precio: 14.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "El gran Gatsby" })._id,
+        cantidad: 2,
+        precio: 15.0,
+      },
+    ],
+    fecha_compra: "2024-08-22",
+    total: 44.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Sofia Garcia" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Moby-Dick" })._id,
+        cantidad: 1,
+        precio: 20.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Mrs. Dalloway" })._id,
+        cantidad: 1,
+        precio: 16.0,
+      },
+    ],
+    fecha_compra: "2024-08-23",
+    total: 36.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Luis Ramirez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Guerra y paz" })._id,
+        cantidad: 1,
+        precio: 22.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Tokio Blues" })._id,
+        cantidad: 1,
+        precio: 19.0,
+      },
+    ],
+    fecha_compra: "2024-08-24",
+    total: 41.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Carmen Torres" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "El gran Gatsby" })._id,
+        cantidad: 2,
+        precio: 15.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "1984" })._id,
+        cantidad: 1,
+        precio: 17.0,
+      },
+    ],
+    fecha_compra: "2024-08-25",
+    total: 47.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Miguel Ruiz" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Orgullo y prejuicio" })._id,
+        cantidad: 1,
+        precio: 12.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Moby-Dick" })._id,
+        cantidad: 1,
+        precio: 20.0,
+      },
+    ],
+    fecha_compra: "2024-08-26",
+    total: 32.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Elena Diaz" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Guerra y paz" })._id,
+        cantidad: 1,
+        precio: 22.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "Las aventuras de Tom Sawyer" })
+          ._id,
+        cantidad: 2,
+        precio: 14.0,
+      },
+    ],
+    fecha_compra: "2024-08-27",
+    total: 50.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Ricardo Jimenez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Mrs. Dalloway" })._id,
+        cantidad: 1,
+        precio: 16.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "La metamorfosis" })._id,
+        cantidad: 2,
+        precio: 10.0,
+      },
+    ],
+    fecha_compra: "2024-08-28",
+    total: 36.0,
+  },
+  {
+    cliente_id: db.cliente.findOne({ nombre: "Isabel Fernandez" })._id,
+    libros: [
+      {
+        libro_id: db.libro.findOne({ titulo: "Guerra y paz" })._id,
+        cantidad: 1,
+        precio: 22.0,
+      },
+      {
+        libro_id: db.libro.findOne({ titulo: "El gran Gatsby" })._id,
+        cantidad: 1,
+        precio: 15.0,
+      },
+    ],
+    fecha_compra: "2024-08-29",
+    total: 37.0,
+  },
+]);

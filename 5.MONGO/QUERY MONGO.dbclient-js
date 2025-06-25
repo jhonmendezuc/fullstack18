@@ -1,0 +1,89 @@
+//show dbs; //muestra las bases de datos
+//use tienda; //seleccionando la base de datos
+//show collections; //muestra las colecciones disponibles
+//query -- sentencia (FIND(), INSERT(), UPDATE(), DELETE())
+
+//buscar todos los clientes usando JS con DBCLIENT
+db("tienda").collection("clientes").find();
+//buscar los clientes usando mongo directamente
+db.clietes.find({});
+//insertar un nuevo cliente
+db.clientes.insertOne({
+  nombre: "alexis",
+  apellido: "lara",
+  cedula: 123,
+  cuentas: [
+    {
+      numero: 123,
+      tipo: "ahorros",
+      saldo: 1000,
+    },
+    {
+      numero: 456,
+      tipo: "corriente",
+      saldo: 2000,
+    },
+  ],
+});
+//insertar varios clientes
+db.clientes.insertMany([
+  {
+    nombre: "gonzalo",
+    apellido: "jimenez",
+  },
+  {
+    nombre: "nubia",
+    apellido: "pardo",
+  },
+]);
+
+//buscar un cliente por nombre
+db.clientes.find({ nombre: "jairo" });
+//buscar un cliente por id
+db.clientes.find({ _id: ObjectId("68229f3621b15ef75a84be21") });
+//actualizar un cliente
+db.clientes.updateOne(
+  {
+    _id: ObjectId("68229f3621b15ef75a84be21"),
+  },
+  {
+    $set: {
+      nombre: "jorge",
+      apellido: "pardo",
+      edad: 45,
+    },
+  }
+);
+//actualizar varios clientes que contengan un nombre
+db.clientes.updateMany(
+  {
+    nombre: { $exists: true },
+  },
+  {
+    $set: {
+      pais: "colombia",
+    },
+  }
+);
+//actualizar varios clientes que contengan un apellido
+db.clientes.updateMany(
+  {
+    apellido: { $exists: true },
+  },
+  {
+    $set: {
+      ciudad: "cali",
+    },
+  }
+);
+
+//eliminar todos los clientes
+db.clientes.remove({});
+//eliminar un solo cliente
+db.clientes.remove({ _id: ObjectId("68229f3621b15ef75a84be21") });
+//eliminar una coleccion
+db.tienda.detalle_factura.drop();
+//eliminar los que tengan edad
+db.clientes.deleteMany({
+  edad: { $exists: true },
+});
