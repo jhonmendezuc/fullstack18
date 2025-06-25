@@ -2,7 +2,8 @@ import axios from "axios";
 import config from "../../config.js";
 import { jwtDecode } from "jwt-decode";
 
-const { API_BACKEND, TOKEN } = config;
+const { API_BACKEND } = config;
+const TOKEN = localStorage.getItem("token");
 const userId = jwtDecode(TOKEN).id;
 const getTask = async () => {
   try {
